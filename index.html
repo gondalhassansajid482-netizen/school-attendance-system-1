@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#075c46">
+  <title>مسلم ایجوکیشن ماڈل ہائی سکول | حاضری</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div class="emblem">✦</div>
+      <p class="eyebrow">SCHOOL MANAGEMENT SYSTEM</p>
+      <h1>مسلم ایجوکیشن ماڈل ہائی سکول</h1>
+      <h2>کلاس دہم حاضری سسٹم</h2>
+      <p>استاد: سر اطیب امتیاز</p>
+    </header>
+
+    <main>
+      <section class="panel controls">
+        <div class="field">
+          <label for="attendanceDate">حاضری کی تاریخ</label>
+          <input type="date" id="attendanceDate">
+        </div>
+        <div class="field">
+          <label for="searchInput">طالب علم تلاش کریں</label>
+          <input type="search" id="searchInput" placeholder="نام لکھیں...">
+        </div>
+        <button id="loadBtn" class="btn gold">ریکارڈ لوڈ کریں</button>
+      </section>
+
+      <section class="stats">
+        <article class="stat"><span>کل طلبہ</span><strong id="total">10</strong></article>
+        <article class="stat"><span>حاضر</span><strong id="presentCount">0</strong></article>
+        <article class="stat"><span>غیر حاضر</span><strong id="absentCount">0</strong></article>
+        <article class="stat"><span>چھٹی</span><strong id="leaveCount">0</strong></article>
+        <article class="stat"><span>حاضری فیصد</span><strong id="attendanceRate">0%</strong></article>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">DAILY REGISTER</p>
+            <h2>طلبہ کی حاضری</h2>
+          </div>
+          <button id="allPresent" class="btn outline">سب حاضر</button>
+        </div>
+
+        <p id="message" role="status" aria-live="polite"></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>نمبر</th>
+                <th>طالب علم کا نام</th>
+                <th>حاضری</th>
+              </tr>
+            </thead>
+            <tbody id="studentList"></tbody>
+          </table>
+        </div>
+
+        <div class="actions">
+          <button id="submitBtn" class="btn primary">حاضری محفوظ کریں</button>
+          <button id="viewBtn" class="btn gold">View Data</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MONTHLY ANALYTICS</p>
+            <h2>ماہانہ حاضری رپورٹ</h2>
+          </div>
+        </div>
+        <div class="field month-field">
+          <label for="monthInput">مہینہ منتخب کریں</label>
+          <input type="month" id="monthInput">
+        </div>
+        <button id="monthlyBtn" class="btn primary">ماہانہ رپورٹ دیکھیں</button>
+        <div id="monthlySummary"></div>
+        <div class="table-wrap" id="monthlyTable"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CERTIFICATE CENTRE</p>
+            <h2>سرٹیفکیٹ اور ڈاؤن لوڈ</h2>
+          </div>
+        </div>
+        <p class="muted">منتخب تاریخ کی حاضری سے سرٹیفکیٹ تیار کریں۔ ہر سرٹیفکیٹ پر طالب علم کا نام، تاریخ اور حاضری کی کیفیت ہوگی۔</p>
+        <div class="actions">
+          <button id="singlePdfBtn" class="btn gold">منتخب بچے کا PDF</button>
+          <button id="bulkPdfBtn" class="btn primary">تمام بچوں کے PDF</button>
+          <button id="csvBtn" class="btn outline">Excel/CSV رپورٹ ڈاؤن لوڈ</button>
+          <button id="printBtn" class="btn outline">رپورٹ پرنٹ کریں</button>
+        </div>
+        <p class="muted">تمام بچوں کے سرٹیفکیٹس ایک ZIP فائل میں ڈاؤن لوڈ ہوں گے۔</p>
+      </section>
+
+      <section class="panel" id="reportSection" hidden>
+        <h2>حاضری ریکارڈ</h2>
+        <p id="reportInfo"></p>
+        <div class="table-wrap" id="reportTable"></div>
+      </section>
+    </main>
+
+    <footer>© مسلم ایجوکیشن ماڈل ہائی سکول  · کلاس دہم</footer>
+  </div>
+<footer> Website Edit by Hassan Sajid Development</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
